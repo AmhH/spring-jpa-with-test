@@ -1,5 +1,6 @@
 package com.example.model;
 
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -9,6 +10,7 @@ import java.util.List;
 @Data
 @Entity
 @NoArgsConstructor
+@JsonPropertyOrder(alphabetic=true)
 public class Load {
 
     @Id
