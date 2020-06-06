@@ -1,6 +1,7 @@
 package com.example.repository;
 
 
+import com.example.SpringJpaWithTestApplication;
 import com.example.controller.EmployeeRestController;
 import com.example.service.EmployeeService;
 import com.example.service.impl.EmployeeServiceImpl;
@@ -8,10 +9,13 @@ import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.boot.test.autoconfigure.orm.jpa.TestEntityManager;
+import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
+import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.context.TestConfiguration;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.context.annotation.Bean;
+import org.springframework.test.context.TestPropertySource;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
@@ -68,34 +72,30 @@ class EmployeeRestControllerIntegrationTest2 {
 
 }
 
---------------------------------------------
-        --------------------------------------------
+    /**
+     * Inegration Test
+     */
 
-        Inegration Test
 
-        --------------------------------------------
-        --------------------------------------------
 
-@RunWith(SpringRunner.class)
-@SpringBootTest(
-          SpringBootTest.WebEnvironment.MOCK,
-          classes = Application.class)
+
+
+@ExtendWith(SpringExtension.class)
+@SpringBootTest(SpringBootTest.WebEnvironment.MOCK,
+        classes = SpringJpaWithTestApplication.class)
 @AutoConfigureMockMvc
-@TestPropertySource(
-          locations = "classpath:application-integrationtest.properties")
+@TestPropertySource(locations = "classpath:application-integrationtest.properties")
 public class EmployeeRestControllerIntegrationTest {
 
-   
+
     @Autowired
-   
     private MockMvc mvc;
 
-   
+
     @Autowired
-   
     private EmployeeRepository repository;
 
-    // write test cases here
+ // write test cases here
 
 }
 
